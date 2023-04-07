@@ -17,7 +17,7 @@ main{
 }
 
 section{
-    border-top: solid gray;
+    border-top: solid gray 2px;
 }
 
 h1, h2{

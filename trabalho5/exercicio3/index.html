@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Alert Box</title>
+
+</head>
+<body>
+    <div> 
+        <p></p>
+        <button type="button" id="ok">Ok</button>
+    </div>
+
+    <input type="text">
+    <button id="alert" type="button">ALERTA</button>
+
+    <script>
+        const okButton = document.querySelector("#ok")
+        const alertBox = document.querySelector("div")
+        const alertText = document.querySelector("p")
+        const inputMessage = document.querySelector("input")
+        const alertButton = document.querySelector("#alert")
+
+        alertButton.addEventListener("click", () => {
+            alertText.textContent = inputMessage.value
+            alertBox.style.visibility = "visible"
+            clearInput()
+        });
+
+        okButton.addEventListener("click", () => {
+            alertBox.style.visibility = "hidden"
+        })
+        
+        function clearInput(){
+            inputMessage.value = ""
+        }
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Curriculo de Fulano de tal</title>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const title = document.querySelector("h1")
+            title.addEventListener("click", () => title.textContent = "Ciclano de Tal")
+        })
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const title = document.querySelectorAll("h2")
+            
+            for(let singleTitle of title){
+                singleTitle.addEventListener("click", () => singleTitle.textContent = "Obrigado")
+            }
+        })
+
+
+
+    </script>
+
+</head>
+
+<body>
+    <main>
+
+        <img src="images/file.png" alt="Foto Avatar" width="120px" height="120">
+        <h1>Fulano de Tal</h1>
+
+        <section>
+            <h2>Perfil</h2>
+
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem, in eum! Quidem, laudantium iusto quae
+                fuga, sequi ipsa vero vel enim numquam est pariatur. Dolor rerum aliquam voluptatum? Voluptates,
+                accusantium..</p>
+        </section>
+
+        <section>
+            <h2>Lorem ipsum</h2>
+
+            <ul>
+                <li>Lorem ipsum</li>
+                <li>Lorem ipsum</li>
+                <li>Lorem ipsum</li>
+                <li>Lorem ipsum</li>
+                <li>Lorem ipsum</li>
+            </ul>
+
+        </section>
+
+        <h2>Lorem ipsum Lorem ipsum</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit <a src="https://portal.anhembi.br/">Lorem</a>,Lorem
+            ipsum, dolor sit amet consectetur adipisicing elit
+            <a src="https://ufu.br/">Faculdade Federal de Uberlandia</a>
+        </p>
+        <hr>
+
+        <h2>Lorem ipsum</h2>
+        <ol>
+            <li>
+                Lorem ipsum
+                <ul>
+                    <li> Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                </ul>
+            </li>
+        </ol>
+
+        <a href="./trabalho1/experiencia.html">Veja as experiências profissionais em detalhes</a>
+        <hr>
+
+        <h2>Contato</h2>
+
+        <img src="images/locale.png" width="30px" height="30px">
+        <address>Joao Naves de Ávila, Santa Monica, Uberlandia</address>
+        <img src="images/telefone.png" width="30px" height="30px" alt="telefone icon">
+        <address>
+            <a href="callto:+551198327832">(11) 9832-7832</a>
+        </address>
+        <img src="images/email.png" width="30px" height="30px" alt="email icon">
+        <address>
+            <a href="mailto:arthur@gmail.com">email@gmail.com</a>
+        </address>
+
+    </main>
+</body>
+
+</html>

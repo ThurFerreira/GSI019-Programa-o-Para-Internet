@@ -8,10 +8,21 @@
 
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
         h1 {
             display: flex;
             justify-content: center;
             font-family: sans-serif;
+            background-color: gray;
+            padding: 30px;
+            margin: 0;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            color: white;
         }
 
         a {
@@ -20,38 +31,44 @@
             color: black;
         }
 
-        table {
-            margin-left: 70px;
+        ul , li{
+            display: flex;
+            margin-left: 15px;
+            padding: 10px;
+            list-style: none;
+            font-family: sans-serif;
         }
 
-        pre {
-            font-family: sans-serif
-        }
-
-        td {
-            padding: 20px;
-        }
-        
     </style>
-    
+
 </head>
 
 <body>
+
     <h1>Repositório de trabalhos</h1>
 
-    <table>
-        <tr>
-            <td><a href="trabalho1/index.html">
-                    <pre> Trabalho 1<br>[02/03/2023]</pre>
-                </a></td>
-            <td><a href="trabalho2/index.html">
-                    <pre> Trabalho 2<br>[09/03/2023]</pre>
-                </a></td>
-                <td><a href="trabalho3/index.html">
-                    <pre> Trabalho 3<br>[16/03/2023]</pre>
-                </a></td>
-        </tr>
-    </table>
+    <ul>
+        <li>
+            <a href="trabalho1/index.html">
+                <pre> Trabalho 1<br>[02/03/2023]</pre>
+            </a>
+        </li>
+        <li>
+            <a href="trabalho2/index.html">
+                <pre> Trabalho 2<br>[09/03/2023]</pre>
+            </a>
+        </li>
+        <li>
+            <a href="trabalho3/index.html">
+                <pre> Trabalho 3<br>[16/03/2023]</pre>
+            </a>
+        </li>
+        <li>
+            <a href="trabalho4/index.html">
+                <pre> Trabalho 4<br>[23/03/2023]</pre>
+            </a>
+        </li>
+    </ul>
 
 </body>
 
