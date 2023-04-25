@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12111BSI259</title>
+</head>
+<body>
+    <main>
+        <form action="cadastraVeiculo.php" method="post">
+            <div>
+                <label for="marca">Marca:</label>
+                <input type="text" name="marca" id="marca" placeholder="Marca">    
+            </div>
+            <div>
+                <label for="modelo">Modelo:</label>
+                <input type="text" name="modelo" id="modelo" placeholder="Modelo">    
+            </div>
+            <div>
+                <label for="cor">Cor:</label>
+                <input type="text" name="cor" id="cor" placeholder="Cor">    
+            </div>
+            <div>
+                <label for="dt_fab">Data de Fabricação</label>
+                <input type="date" name="dt_fab" id="dt_fab">    
+            </div>
+            <select>
+                <option value="automovel">Automóvel</option>
+                <option value="caminhonete">Caminhonete</option>
+                <option value="caminhao">Caminhao</option>
+            </select>
+            <div>
+                <input type="checkbox" name="contem[]" value="ar" id="ar">    
+                <label for="ar">Ar-condicionado</label>
+            </div>
+            <div>
+                <input type="checkbox" name="contem[]" value="multimidia" id="mult">    
+                <label for="mult">Central Multimidia</label>
+            </div>
+            <div>
+                <input type="checkbox" name="contem[]" value="gps" id="gps">    
+                <label for="gps">GPS</label>
+            </div>
+            <textarea maxlength="300" name="desc" id="desc" rows="10" cols="40" placeholder="Descrição ..."></textarea>
+            <div>
+                <label for="img">Foto</label>
+                <input type="file" accept=".png, .jpg, .jpeg" name="img" id="img">
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+
+    </main>
+</body>
+</html>
