@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio1</title>
+</head>
+<body>
+    <h1>Ex1-hello</h1>
+    <p>A funcção se conecta ao banco de dados  mysql, executa uma query de seleção, que retorna os atributos nome e telefone, gerando umm codigo html e inserindo na página</p>
+
+    <h1>Ex1-SQL-injection</h1>
+    <p>O arquivo "mostra-aluno" executa uma query que retorna os dados dos alunos que estão inseridos no banco de dados. O "cadastro-vulneravel" insere os dados vindos de um formulário de forma incorreta, pois viabiliza SQL injection por meio da inserção no banco usando diretamente as variaveis</p>
+
+    <h1>Ex3-cadastro</h1>
+    <p>"mostra-clientes" executa uma query de seleção no banco de dados recuperando o nome, cpf, email, senha, data de nascimento, estado civil e altura dos clientes e não é necessário o uso de prepared statement. o "cadastra-cliente" faz a inserção dos dados de um cliente recuperados de um fomulário, a inserção é feita utilizando prepared statement, assim impedindo a possibilidade de SQL injection. o "exclui-cliente" recebe um cpf e deleta o registro equivalente, e denovo é feito o uso de prepared statement</p>
+
+    <h1>Ex4-login</h1>
+    <p>o codigo php recebe os dados de login de um determinado cliente, executa uma query usando o email como chave de busca, retornando a senha cliente com aquele email, é feita uma autenticação da senha utilizando a função password_verify, depois de autenticado, é o usuario é direcionado para a home, caso a verificação tenha sucesso, ou para o index, caso a tenha falhado</p>
+
+    <h1>Ex5-transacao</h1>
+    <p>
+        "mostra-enderecos-pedidos" executada uma query squl retornadno endereco, bairro, cidade, nome, email de um cliente utiliando um atributo chave id_cliente, então gera um codigo html para exibir os dados. "transacao-cadastra-pedido" recebe dados pessoais de um cliente e um endereço de entrega e insere na tabela de clientes e de endereço utilizando prepared statement 
+    </p>
+</body>
+</html>
