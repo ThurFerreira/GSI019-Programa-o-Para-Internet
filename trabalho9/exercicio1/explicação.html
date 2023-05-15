@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        body {
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+      
+        a:link, a:visited, a:active {
+          color: #555;
+          text-decoration: none;
+          display: block;
+          margin-bottom: 1em;
+          background-color: #eee;
+          border: 0.5px solid lightgray;
+          padding: 10px;
+          width: 100px;
+        }
+      
+        a:hover {
+          background-color: #dedede;
+        }
+      
+      </style>
+
+    <a href="index.html">Pagina Inicial</a>
+
+    <h1>Ex1</h1>
+    <p>index: alem do texto basico no html, o script contido no arquivo faz uma requisição ajax e inserindo dinamicamente o conteudo do arquivo "conteudoAdicional" na pagina</p>
+
+    <h1>Ex2</h1>
+    <p>busca-cidade2.php: O php recebe valores via GET, verifica se o valor do parâmetro 'cep' é igual a '38400-100' ou '38700-000', exibindo o nome da cidade correspondente e o valor do parâmetro 'num' e retornando o erro 404 caso o cep nao seja valido</p>
+    <p>index: alem do codigo html base da pagina, o script inserido realiza uma chamada AJAX para um script PHP que retorna o nome da cidade correspondente. Se ocorrer algum erro na chamada AJAX, as informações da resposta são impressas no navegador e o resultado é devolvido em uma pagina html.</p>
+
+    <h1>Ex3</h1>
+    <p>busca-endereco.php: A funcao cria um objeto Endereco com informações de rua, bairro e cidade, dependendo do valor do parâmetro GET 'cep'. Se o CEP não for encontrado, um objeto Endereco vazio é criado, das duas formas, o resultado é retornado como um objeto JSON utilizando a </p>
+    <p>index.htlm: o script inserido no arquivo faz uma requisição com AJAX ao busca-endereco.php esperando um json como retorno utilizando "xhr.responseType = 'json'" para definir o tipo de retorno como json, é verificado se a resposta é valida e se a requisiçãofoi bem sucedida. Depois o json retornado é atribuido a variavel endereco e um formulario é preenchido com as informações do json</p>
+
+    <h1>Ex4</h1>
+    <p>busca-endereco.php: A funcao cria um objeto Endereco com informações de rua, bairro e cidade, dependendo do valor do parâmetro GET 'cep'. Se o CEP não for encontrado, um objeto Endereco vazio é criado, das duas formas, o resultado é retornado como um objeto JSON</p>
+    <p>index.htlm: o script inserido no arquivo faz uma requisição com AJAX ao busca-endereco.php esperando um json como retorno, é verificado se a resposta é valida e se a requisição foi bem sucedida e o objeto retornado é convertido de objeto json para objeto javascript e atribuido a variavel endereco, e um formulario é preenchido com as informações do objeto</p>
+
+    <h1>Ex5</h1>
+    <p>busca-endereco.php:  a funcao alem de criar um obejeto endereço, recebe um objeto uma string em forma de json pela funcao file_get_contentes() e converte em objeto php usando o json_decode()</p>
+    <p>index.html: o script da pagina cria um objeto javascript e envia no formato json por uma requisição AJAX para busca-endereco.php, a função de retorno recebe um json com as informações do endereco e atribui ao formulario. o metodo xhr.send() envia a requisição com o objeto json</p>
+
+    <h1>Ex6</h1>
+    <p>checkLogin: o codigo php recebe os dados de login e verifica se os dados são validos ou nao, dependendo da resposta, um objeto RequestResponse é criado e mandado de volta com o resultado das verificacoes</p>
+    <p>home.html: uma pagina com um direcionamento para index.html</p>
+    <p>index.html: é feito uma requisição com o metodo POST com um objeto FormData, indicando o objeto de retorno como um json, depois é verificado se a requisição foi bem sucedida e se o objeto retornado é valido, depois "loginResponse" recebe os dados de retorno da requisição e verifica o resultado do login, se o login for mal sucedido, o paragrafo "loginFailMsg" é exibido com a mensagem de erro.</p>
+
+</body>
+</html>
