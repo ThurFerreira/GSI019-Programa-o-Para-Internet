@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Encadeando requisições assíncronas</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            line-height: 1.5rem;
+            background-color: #ddd;
+            color: #555;
+            margin: 0;
+        }
+
+        main {
+            width: 60%;
+            margin: 0;
+            padding: 2% 4%;
+            background-color: #eee;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        h1 {
+            font-size: 5rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <form id="form">
+            <label for="inputCodigo">Codigo de ação </label>
+            <input id="inputCodigo" name="inputCodigo">
+            <button type="submit">Enviar</button>
+        </form>
+
+        <form id="form2">
+            <div>
+                <label for="inputCodigo">Codigo de ação 1</label>
+                <input id="inputCodigo1" name="inputCodigo1">
+            </div>
+            <div>
+                <label for="inputCodigo2">Codigo de ação 2</label>
+                <input id="inputCodigo2" name="inputCodigo2">
+            </div>
+            <div>
+                <label for="inputCodigo3">Codigo de ação 3</label>
+                <input id="inputCodigo3" name="inputCodigo3">
+            </div>
+            <div>
+                <label for="inputCodigo4">Codigo de ação 4</label>
+                <input id="inputCodigo4" name="inputCodigo4">
+            </div>
+            <div>
+                <label for="inputCodigo5">Codigo de ação 5</label>
+                <input id="inputCodigo5" name="inputCodigo5">
+            </div>
+
+            <button type="button" id="sequencial">Cotar sequencialmente</button>
+            <button type="button" id="paralelo">Cotar em paralelo</button>
+
+        </form>
+
+        <div></div>
+    </main>
+    <script>
+
+        // OBS: A função não trata todos os erros
+        function getQuote(codigo) {
+            return fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${codigo}.SA&apikey=1Y5DZQD7XM4UUD6C`)
+                .then(response => response.json())
+                .then(response => response["Global Quote"])
+                .then(response => renderStock(response))
+                .catch(console.error);
+        }
+
+        function renderStock(responseObj) {
+            let newDiv = document.getElementsByTagName("div");
+            let newP = document.createElement("p");
+            let h1 = document.createElement("h1");
+            
+            div.style.display = "block";
+            h1.textContent = "Cotações"
+            newDiv.appendChild([h1, newP])
+            newP.textContent = responseObj['01. symbol'] + ': ' + responseObj['05. price']
+        }
+
+        function sequencial() {
+            form = document.querySelector("form");
+
+            let value1 = form.inputCodigo1.value
+            let value2 = form.inputCodigo2.value
+            let value3 = form.inputCodigo3.value
+            let value4 = form.inputCodigo4.value
+            let value5 = form.inputCodigo5.value
+
+            fetch(getQuote(value1))
+                .then(cotacao1 => console.log(cotacao1))
+                .then(response => getQuote(value2))
+                .then(cotacao2 => console.log(cotacao2))
+                .then(response => getQuote(value3))
+                .then(cotacao3 => console.log(cotacao3))
+                .then(response => getQuote(value4))
+                .then(cotacao4 => console.log(cotacao4))
+                .then(response => getQuote(value5))
+                .then(cotacao5 => console.log(cotacao5))
+                .catch(error => console.log(error))
+        }
+
+        function paralelo() {
+
+            form = document.querySelector("#form2");
+
+            Promise.all([
+                getQuote(form.inputCodigo1.value),
+                getQuote(form.inputCodigo2.value),
+                getQuote(form.inputCodigo3.value),
+                getQuote(form.inputCodigo4.value),
+                getQuote(form.inputCodigo5.value)
+            ])
+                .then(response => console.log(response))
+                .catch(error => console.log(error))
+        }
+
+        window.onload = function () {
+            // let form = document.getElementById("form");
+            // let responseObj = getQuote(form.inputCodigo.value);
+
+            sequencialBtn = document.querySelector("#sequencial");
+            sequencialBtn.addEventListener("click", sequencial);
+            paraleloBtn = document.querySelector("#paralelo");
+            paraleloBtn.addEventListener("click", paralelo);
+
+        }
+    </script>
+
+</body>
+
+</html>

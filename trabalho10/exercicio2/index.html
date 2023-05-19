@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Encadeando requisições assíncronas</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      line-height: 1.5rem;
+      background-color: #ddd;
+      color: #555;
+      margin: 0;
+    }
+
+    main {
+      width: 60%;
+      margin: 0;
+      padding: 2% 4%;
+      background-color: #eee;
+      display: inline-block;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    h1 {
+      font-size: 5rem;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="resposta">Resposta</a>
+  <main>
+    <h2>Temperatura Local: <span id="temp">...</span></h2>
+    <h2>Velocidade do Vento: <span id="wind">...</span></h2>
+  </main>
+  <script>
+
+    // OBS: A função não trata todos os erros
+    function buscaClimaLocal() {
+      fetch('https://ipapi.co/json/')
+        .then(response => response.json())
+        .then(data => fetch(`https://api.open-meteo.com/v1/forecast?latitude=${data.latitude}&longitude=${data.longitude}&current_weather=true`))
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("temp").textContent = data.current_weather.temperature + '°';
+          document.getElementById("wind").textContent = data.current_weather.windspeed + ' km/h';
+        })
+        .catch(error => console.log(error));
+    }
+
+    window.onload = function () {
+      buscaClimaLocal();
+    }
+  </script>
+
+  <!-- É feita uma requisição usando o método `fetch()`. Essa requisição retorna informações como latitude e longitude
+  no formato JSON. Em seguida, o resultado da primeira requisição é tratado no primeiro .then(). O método .json() é
+  usado para converte a resposta para um arquivo JSON. Depois, é feita uma segunda requisição para a API. Após isso,
+  o resultado é novamente tratado no segundo .then(). Os dados retornados são extraídos usando o método .json() e,
+  em seguida, as informações como temperatura e velocidade do vento, são extraídas desses dados. Por fim, os
+  elementos HTML com IDs "temp" e "wind" são atualizados com as informações retornadas da requisição. Em caso de
+  erro em qualquer uma das requisições, o erro é capturado no .catch() e exibido no console. -->
+</body>
+
+</html>
