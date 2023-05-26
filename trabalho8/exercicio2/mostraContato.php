@@ -1,8 +1,8 @@
 <?php
    //$pdo = mysqlConnect();
 
-    $nome = $_GET["nome"] ??;
-    $email = $_GET["email"] ??;
+    $nome = $_GET["nome"] ?? "";
+    $email = $_GET["email"] ?? "";
 
     echo <<<HTML
     <html>

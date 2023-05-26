@@ -9,7 +9,7 @@
 
     $query = <<<SQL
     INSERT INTO Contato (nome, email, mensagem) VALUES ($nome, $email, $mensagem)
-    SQL
+    SQL;
 
     $stmt = $database->exec($query);
 

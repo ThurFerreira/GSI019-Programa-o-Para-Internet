@@ -8,10 +8,10 @@
     SQL;
 
     $stmt = $database->query($query);
-    $contatos = $stmt->fetchAll() //Retorna todas as linhas de uma única coluna quando utilizado em conjunto com PDO::FETCH_COLUMN
+    $contatos = $stmt->fetchAll(); //Retorna todas as linhas de uma única coluna quando utilizado em conjunto com PDO::FETCH_COLUMN
 
     foreach ($contato as $contatos)
-        echo $contato
+        echo $contato;
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +25,7 @@
 <body>
     <?php
         while($row = $stmt->fetch()){
-            $nome = 
+            $nome = "sim";
         }
     ?>
 </body>

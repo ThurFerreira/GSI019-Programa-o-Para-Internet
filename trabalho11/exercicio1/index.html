@@ -46,29 +46,26 @@
 
   <script>
 
-    function buscaEndereco(cep) {
-      
-      if (cep.length != 9) return;      
-      let form = document.querySelector("form");
-      
-      fetch("busca-endereco.php?cep=" + cep)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(response.status);
-          }
+    async function buscaEndereco(cep) {   
+      if (cep.length != 9) return;
 
-          return response.json(); // Atenção para o 'return' aqui
-        })
-        .then(endereco => {
-          // utiliza os dados para preencher o formulário
-          form.rua.value = endereco.rua;
-          form.bairro.value = endereco.bairro;
-          form.cidade.value = endereco.cidade;
-        })
-        .catch(error => {
-          form.reset();
-          console.error('Falha inesperada: ' + error);
-        });
+      try {
+        //é feito uma requisição assíncrona com o uso da palavra await, onde a proxima linha de código só será executada quando a thread da requisição retornar, liberando o fluxo principal do programa
+        let response = await fetch("busca-endereco.php?cep=" + cep);
+        if (!response.ok) throw new Error(response.statusText);
+        //executando a função .json() de forma assíncrona
+        var endereco = await response.json();
+      }
+      catch (e) {// recuperando erro
+        console.error(e);
+        return;
+      }
+
+      //recuperando as informações recebidas por json e atribuindo a um formulário 
+      let form = document.querySelector("form");
+      form.rua.value = endereco.rua;
+      form.bairro.value = endereco.bairro;
+      form.cidade.value = endereco.cidade;
     }
 
     window.onload = function () {
@@ -78,6 +75,7 @@
 
   </script>
 
+  <img src="imagem.png">
 </body>
 
 </html>
